@@ -10,4 +10,18 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'slug', 'image', 'icon'];
+
+    // uno a muchos
+    public function subcategories(){
+        return $this->hasMany(Subcategory::class);
+    }
+
+    //muchos a muchos
+    public function brands(){
+        return $this->belondsToMany(Brand::class);
+    }
+
+    public function products(){
+        return $this->hasManyThrough(Product::class, Subcategory::class);
+    }
 }

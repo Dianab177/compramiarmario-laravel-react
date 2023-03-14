@@ -2,16 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Brand;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\Image;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Brand>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\image>
  */
-class BrandFactory extends Factory
+class ImageFactory extends Factory
 {
-    protected $model = Brand::class;
+    protected $model = Image::class;
     /**
      * Define the model's default state.
      *
@@ -20,7 +19,7 @@ class BrandFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word()
+            'url' => 'products/' . $this->faker->image('public/storage/products', 640, 480, null, false)
         ];
     }
 }
