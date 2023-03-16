@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Image;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Product;
 
 class ProductSeeder extends Seeder
 {
@@ -12,6 +14,11 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Product::factory(150)->create()->each(function(Product $product){
+            Image::factory(4)->create([
+                'imageable_id'=> $product->id,
+                'imageable_type' => Product::class
+            ]);
+        });
     }
 }

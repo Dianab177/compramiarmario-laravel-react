@@ -11,17 +11,21 @@ class Category extends Model
 
     protected $fillable = ['name', 'slug', 'image', 'icon'];
 
-    // uno a muchos
+    //Relacion uno a muchos
     public function subcategories(){
         return $this->hasMany(Subcategory::class);
     }
 
-    //muchos a muchos
+    //Relacion muchos a muchos
     public function brands(){
-        return $this->belondsToMany(Brand::class);
+        return $this->belongsToMany(Brand::class);
     }
+
 
     public function products(){
         return $this->hasManyThrough(Product::class, Subcategory::class);
     }
+
+    //URL AMIGABLES
+   
 }

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-
+    const BORRADOR = 1;
+    CONST PUBLICADO = 2;
     protected $guarded = ['id', 'created_at', 'updated_ad'];
 
     //uno a muchos
