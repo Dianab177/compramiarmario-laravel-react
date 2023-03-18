@@ -1,8 +1,8 @@
 
 
-<header class="bg-red-200 sticky top-0" x-data="dropdown()">
+<header class="bg-red-200 sticky top-0" style="z-index: 900" x-data="dropdown()">
     <div class="container flex items-center h-16">
-        <a 
+        <a :class="{'bg-opacity-100 text-red-300' : open}"
         x-on:click="show()" 
         class="text-white cursor-pointer">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -10,18 +10,21 @@
                     stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </a>
-        <a href="#" class="mx-6">
+        <a href="/" class="mx-6">
             <x-application-mark class="block h-9 w-auto" />
         </a>
 
-        @livewire('search')
-
+        <div class="flex-1 hidden md:block">
+            @livewire('search')
+        </div>
         
                 <!-- Settings Dropdown -->
-                <div class="mx-6 relative">
+                <div class="mx-6 relative hidden md:block">
                     @auth
+
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
+
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                     <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
@@ -69,16 +72,19 @@
                    
                 </div>
 
-        @livewire('dropdown-card')
+        <div class="hidden md:block">
+            @livewire('dropdown-card')
+        </div>
 
     </div>
 
     <nav id="navigation-menu" 
-     :class="{'block':open, 'hidden': !open}"
+    :class="{'block': open, 'hidden': !open}"
       class="bg-gray-500 bg-opacity-25 w-full absolute hidden">
 
-        <div class="container h-full">
-        <div x-on:click.away="close()"
+        <div class="container h-full hidden md:block">
+        <div 
+        x-on:click.away="close()"
             class="grid grid-cols-4 h-full relative">
                 <div class="bg-white col-span-1">
                     <ul>
@@ -90,6 +96,7 @@
                                 </span>
                                 {{$category->name}}
                             </a>
+                            
                             <div class="navigation-submenu bg-gray-100 absolute w-3/4 top-0 right-0 h-full hidden">
                                 <x-navigation-subcategories :category="$category"/>
                             </div>
