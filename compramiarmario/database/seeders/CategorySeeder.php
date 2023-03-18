@@ -20,25 +20,25 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Colección Otoño',
                 'slug' => Str::slug('TV, audio y video'),
-                'icon' => '<i class="fa-solid fa-scarf"></i>'
+                'icon' => '<i class="fas fa-solid fa-scarf"></i>'
             ],
 
             [
                 'name' => 'Colección Invierno',
                 'slug' => Str::slug('Consola y videojuegos'),
-                'icon' => '<i class="fa-solid fa-hat-winter"></i>'
+                'icon' => '<i class="fas fa-solid fa-hat-winter"></i>'
             ],
 
             [
                 'name' => 'Colección Primavera',
                 'slug' => Str::slug('Computación'),
-                'icon' => '<i class="fa-solid fa-shirt"></i>'
+                'icon' => '<i class="fas fa-solid fa-shirt"></i>'
             ],
 
             [
                 'name' => 'Colección Verano',
                 'slug' => Str::slug('Moda'),
-                'icon' => '<i class="fa-solid fa-shirt-tank-top"></i>'
+                'icon' => '<i class="fas fa-solid fa-shirt-tank-top"></i>'
             ],
         ];
 
