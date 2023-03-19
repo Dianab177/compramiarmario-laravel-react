@@ -1,5 +1,3 @@
-
-
 <header class="bg-red-200 sticky top-0" style="z-index: 900" x-data="dropdown()">
     <div class="container flex items-center h-16">
         <a :class="{'bg-opacity-100 text-red-300' : open}"
